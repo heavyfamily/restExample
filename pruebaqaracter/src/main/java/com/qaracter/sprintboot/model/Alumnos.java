@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Alumnos {
 	@Id //annotation is for the primary key.
 	@GeneratedValue(strategy = GenerationType.AUTO) // annotation is used to define generation strategy for the primary key.
-	private long id;
+	private Integer id;
 	@Column(name = "nombre") //annotation is used to define the column in database that maps annotated field.
 	private String nombre;
 	@Column(name = "apellidos")
@@ -74,7 +74,7 @@ public class Alumnos {
 	}
 
 	// the Identificator isn´t possible modificate
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 	

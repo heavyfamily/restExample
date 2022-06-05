@@ -9,17 +9,15 @@ import javax.persistence.Table;
 
 @Entity //annotation indicates that the class is a persistent Java class.
 @Table(name = "cursosalumnos") // annotation provides the table that maps this entity.
-
-
 public class CursosAlumnos {
 
 	@Id //annotation is for the primary key.
 	@GeneratedValue(strategy = GenerationType.AUTO) // annotation is used to define generation strategy for the primary key.
-	private long id;
-	@Id //annotation is for the primary key.
-	private long idCurso;
-	@Id //annotation is for the primary key.
-	private long idAlumno;
+	private Integer id;
+	@Column(name = "idCurso")
+	private Integer idCurso;
+	@Column(name = "idAlumno")
+	private Integer idAlumno;
 	@Column(name = "fechaInscripcion")
 	private String fechaInscripcion;
 	@Column(name = "fechaBaja")
@@ -29,7 +27,7 @@ public class CursosAlumnos {
 		super();
 	}
 
-	public CursosAlumnos(long idCurso, long idAlumno, String fechaInscripcion, String fechaBaja) {
+	public CursosAlumnos(Integer idCurso, Integer idAlumno, String fechaInscripcion, String fechaBaja) {
 		super();
 		this.idCurso = idCurso;
 		this.idAlumno = idAlumno;
@@ -37,19 +35,19 @@ public class CursosAlumnos {
 		this.fechaBaja = fechaBaja;
 	}
 
-	public long getIdCurso() {
+	public Integer getIdCurso() {
 		return idCurso;
 	}
 
-	public void setIdCurso(long idCurso) {
+	public void setIdCurso(Integer idCurso) {
 		this.idCurso = idCurso;
 	}
 
-	public long getIdAlumno() {
+	public Integer getIdAlumno() {
 		return idAlumno;
 	}
 
-	public void setIdAlumno(long idAlumno) {
+	public void setIdAlumno(Integer idAlumno) {
 		this.idAlumno = idAlumno;
 	}
 
@@ -70,7 +68,7 @@ public class CursosAlumnos {
 	}
 
 	// the Identificator isn´t possible modificate
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 	

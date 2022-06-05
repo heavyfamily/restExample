@@ -46,7 +46,7 @@ public class AlumnosController {
   }
   
   @GetMapping("/alumnos/{id}")
-  public ResponseEntity<Alumnos> getAlumnoById(@PathVariable("id") long id) {
+  public ResponseEntity<Alumnos> getAlumnoById(@PathVariable("id") Integer id) {
 	  Optional<Alumnos> alumnoData = alumnosRepository.findById(id);
 	  if (alumnoData.isPresent()) {
 		  return new ResponseEntity<>(alumnoData.get(), HttpStatus.OK);
@@ -56,7 +56,7 @@ public class AlumnosController {
   }
   
   @PostMapping("/alumnos")
-  public ResponseEntity<Alumnos> createTutorial(@RequestBody Alumnos alumno) {
+  public ResponseEntity<Alumnos> createAlumno(@RequestBody Alumnos alumno) {
 	  try {
 		  // I use _nomber to diferenciate of other list
 	     Alumnos _alumno = alumnosRepository.
@@ -69,7 +69,7 @@ public class AlumnosController {
   }
   
   @PutMapping("/alumnos/{id}")
-  public ResponseEntity<Alumnos> updateAlumnos(@PathVariable("id") long id, @RequestBody Alumnos alumno) {
+  public ResponseEntity<Alumnos> updateAlumno(@PathVariable("id") Integer id, @RequestBody Alumnos alumno) {
 	  Optional<Alumnos> alumnoData = alumnosRepository.findById(id);
 	    if (alumnoData.isPresent()) {
 	      Alumnos _alumno = alumnoData.get();
@@ -85,7 +85,7 @@ public class AlumnosController {
   }
   
   @DeleteMapping("/alumnos/{id}")
-  public ResponseEntity<HttpStatus> deleteAlumno(@PathVariable("id") long id) {
+  public ResponseEntity<HttpStatus> deleteAlumno(@PathVariable("id") Integer id) {
 	  try {
 	      alumnosRepository.deleteById(id);
 	      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -103,21 +103,7 @@ public class AlumnosController {
 	      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
   }
-  
-  /*
-  @GetMapping("/alumnos/published") 
-  public ResponseEntity<List<Alumnos>> findByPublished() {
-	  try {
-	      List<Alumnos> alumnos = alumnosRepository.findByPublished(true);
-	      if (tutorials.isEmpty()) {
-	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	      }
-	      return new ResponseEntity<>(tutorials, HttpStatus.OK);
-	    } catch (Exception e) {
-	      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-	    }
-  }
-  */
+
   
 }
 

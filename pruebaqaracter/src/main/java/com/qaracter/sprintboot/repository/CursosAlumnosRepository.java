@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.qaracter.sprintboot.model.CursosAlumnos;
+import com.qaracter.sprintboot.model.CursoAlumno;
 
 
-public interface CursosAlumnosRepository extends JpaRepository<CursosAlumnos, Integer> {
+public interface CursosAlumnosRepository extends JpaRepository<CursoAlumno, Integer> {
 	//CRUD
 		//int save(Alumnos alumno);
 		//int update(Alumnos alumno);
@@ -16,9 +16,9 @@ public interface CursosAlumnosRepository extends JpaRepository<CursosAlumnos, In
 
 		//General query
 		//List<Alumnos> findAll();
-		List<CursosAlumnos> FindByFechaInscripcion(String fechaInscripcion);
-		List<CursosAlumnos> findByFechaBaja(String fechaBaja);
+		List<CursoAlumno> FindByFechaInscripcion(String fechaInscripcion);
+		List<CursoAlumno> findByFechaBaja(String fechaBaja);
 		
-		List<CursosAlumnos> FindByIdCurso(Integer idCurso);
-		List<CursosAlumnos> findByIdAlumno(Integer idAlumno);
+		List<CursoAlumno> FindByIdCurso(Integer idCurso);
+		List<CursoAlumno> findByIdAlumno(Integer idAlumno);
 }

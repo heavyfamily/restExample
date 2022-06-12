@@ -71,7 +71,7 @@ public class Curso {
 	}
 
 	// the Identificator isn´t possible modificate
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
